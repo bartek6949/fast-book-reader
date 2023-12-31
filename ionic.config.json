@@ -1,0 +1,7 @@
+{
+  "name": "fast-book-reader",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
