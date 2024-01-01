@@ -1,17 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back" default-href="/" [routerLink]="['/']"></ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Tab 2
+      {{book?.title}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="book-content">
+    <span *ngFor="let world of textContent; let i = index" [ngClass]="{'selected': i === position()}" (click)="updatePosition(i)">
+      {{world}}
+    </span>
+  </div>
 </ion-content>
+<ion-footer *ngIf="this.loaded">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <strong>Until end:</strong>
+     {{position()}}
+    </ion-tab-button>
+    <ion-tab-button tab="play-circle" [routerLink]="['/','book', book?.id, 'read']">
+      <ion-icon size="large" name="play-circle"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <strong>Progress:</strong>
+      {{ progress() }} %
+    </ion-tab-button>
+  </ion-tab-bar>
+  </ion-footer>

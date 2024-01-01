@@ -12,6 +12,38 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab-button (click)="fileInput.click()">
+      <input #fileInput type="file" hidden (change)="doFileInput($event)" accept="application/pdf">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <ion-list [inset]="true" *ngIf="books">
+    <ion-item-sliding *ngFor="let book of books()">
+      <ion-item [button]="true"  [routerLink]="['/','book', book.id]">
+        <ion-label>
+          <strong>{{ book.title }}</strong>
+
+          <ion-text> {{ book.createdAt | date:'YYYY-MM-dd HH:mm:ss' }}</ion-text>
+          <br/>
+          <ion-note color="medium" class="ion-text-wrap">
+            <ion-progress-bar *ngIf="book.position()" [value]="book.progress()"></ion-progress-bar>
+          </ion-note>
+        </ion-label>
+        <div class="metadata-end-wrapper" slot="end">
+          <ion-note color="medium">06:11</ion-note>
+          <ion-icon color="medium" name="chevron-forward"></ion-icon>
+        </div>
+      </ion-item>
+        <ion-item-options slot="end" >
+          <ion-item-option [type]="'button'" color="danger" expandable="true" (click)="remove(book.id)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
 </ion-content>

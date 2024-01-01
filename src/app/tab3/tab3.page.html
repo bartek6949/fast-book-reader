@@ -1,17 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-content [fullscreen]="true" class="ion-padding" (click)="goBack()">
+<div class="read-area">
+  {{textContent[position()]}}
+</div>
 </ion-content>
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="play-back-circle" [size]="'large'" (click)="decrease()"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button >
+      {{speed()}}
+      <br/>
+      w/s
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <ion-icon name="play-forward-circle" [size]="'large'" (click)="increase()"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
