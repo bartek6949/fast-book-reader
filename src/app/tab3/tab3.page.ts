@@ -43,11 +43,12 @@ export class Tab3Page {
     addIcons({playBackCircle, playForwardCircle})
 
   }
+  async ionViewWillEnter() {
+    await this.loadContent();
+  }
 
-  ionViewDidEnter() {
-    this.loadContent();
-
-    let time = new Date().getTime() + 5000; // 2 s start delay
+  async ionViewDidEnter() {
+    let time = new Date().getTime() + 2000; // 2 s start delay
 
     this.timer = setInterval(() => {
       if (!this.book) {
@@ -72,7 +73,7 @@ export class Tab3Page {
     }, 0.5);
   }
 
-  ionViewDidLeave(): void {
+  ionViewWillLeave(): void {
     clearInterval(this.timer);
   }
 
@@ -85,9 +86,7 @@ export class Tab3Page {
       return;
     }
     this.book = book;
-    const parsedBookContent = await this.readerService.getParsedBook(book.content);
-
-    this.textContent = await parsedBookContent.getContent();
+    this.textContent = await this.bookService.getContent(book);
 
     this.position = book.position;
 

@@ -1,17 +1,13 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Books
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+
   <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
     <ion-fab-button (click)="fileInput.click()">
       <input #fileInput type="file" hidden (change)="doFileInput($event)" accept="application/pdf">
@@ -21,21 +17,21 @@
 
 
   <ion-list [inset]="true" *ngIf="books">
+    <ion-item [button]="true" *ngIf="!books().length" (click)="fileInput.click()">
+      <i>Add first book Click here</i>
+    </ion-item>
     <ion-item-sliding *ngFor="let book of books()">
       <ion-item [button]="true"  [routerLink]="['/','book', book.id]">
         <ion-label>
-          <strong>{{ book.title }}</strong>
-
-          <ion-text> {{ book.createdAt | date:'YYYY-MM-dd HH:mm:ss' }}</ion-text>
-          <br/>
-          <ion-note color="medium" class="ion-text-wrap">
-            <ion-progress-bar *ngIf="book.position()" [value]="book.progress()"></ion-progress-bar>
-          </ion-note>
+          <h2>{{ book.title }}</h2>
+          <p>
+            <ion-note color="medium" class="ion-text-wrap">
+              <ion-progress-bar *ngIf="book.position()" [value]="book.progress()"></ion-progress-bar>
+              <i *ngIf="!book.position()">Not yet started</i>
+            </ion-note>
+          </p>
         </ion-label>
-        <div class="metadata-end-wrapper" slot="end">
-          <ion-note color="medium">06:11</ion-note>
-          <ion-icon color="medium" name="chevron-forward"></ion-icon>
-        </div>
+
       </ion-item>
         <ion-item-options slot="end" >
           <ion-item-option [type]="'button'" color="danger" expandable="true" (click)="remove(book.id)">
@@ -45,5 +41,20 @@
 
     </ion-item-sliding>
   </ion-list>
+
+  <ion-modal id="example-modal" [isOpen]="isModalOpen" [backdropDismiss]="false">
+    <ng-template>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{loadingBookName()}}</ion-card-title>
+            <ion-card-subtitle>Loading:</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-progress-bar [value]="loadingBookProgress()"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+    </ng-template>
+  </ion-modal>
 
 </ion-content>

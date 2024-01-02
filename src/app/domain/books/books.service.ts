@@ -3,6 +3,7 @@ import {Book} from "./book";
 import { v1 as uuidv1 } from 'uuid';
 import { Storage } from '@ionic/storage-angular';
 import {ReaderService} from "../reader/pdf/reader.service";
+import {ParsedBook} from "../reader/pdf/parsed-book";
 
 @Injectable(
   {providedIn: 'root'}
@@ -10,6 +11,8 @@ import {ReaderService} from "../reader/pdf/reader.service";
 export class BooksService {
   private books :WritableSignal<Book[]> = signal([]);
   private storage: Storage | null = null;
+
+  currentLoadedBook: WritableSignal<ParsedBook|null> = signal(null)
 
   constructor(
     private storageService: Storage,
@@ -43,13 +46,13 @@ export class BooksService {
     }
 
     const parsedBookContent = await this.readerService.getParsedBook(file);
-    const length = await parsedBookContent.getLength();
-
+    this.currentLoadedBook.update(_ => parsedBookContent);
+    const data = await parsedBookContent.parse();
+    const length = data.length;
 
     const newBook = new Book(
       uuidv1(),
       file.name,
-      file,
       new Date(),
       length,
       0,
@@ -57,6 +60,7 @@ export class BooksService {
 
     this.books.update(books => [...books, newBook]);
     await this.saveToStorage();
+    await this.storage.set(newBook.id, data);
   }
 
   private async saveToStorage() {
@@ -77,5 +81,14 @@ export class BooksService {
   async removeBook(id: string) {
     this.books.update(books => books.filter(book => book.id !== id));
     await this.saveToStorage();
+    if(!this.storage) {
+      throw new Error("Storage not initialized");
+    }
+    await this.storage.remove(id);
+  }
+
+  async getContent(book: Book): Promise<string[]> {
+    const data = await this.storage?.get(book.id);
+    return data || ["empty"];
   }
 }

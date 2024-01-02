@@ -1,7 +1,5 @@
 {
-  "name": "fast-book-reader",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone"
+  "name": "FastBookReader",
+  "integrations": {},
+  "type": "angular"
 }

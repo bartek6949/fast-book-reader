@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1704226746658,
+  "timestamp": 1704231195549,
   "index": "/fast-book-reader/www/index.html",
   "assetGroups": [
     {
@@ -19,11 +19,11 @@
         "/fast-book-reader/www/594.6110149267714db0.js",
         "/fast-book-reader/www/595.977adb5f788382f5.js",
         "/fast-book-reader/www/index.html",
-        "/fast-book-reader/www/main.9aabde7b26b91bba.js",
+        "/fast-book-reader/www/main.e4df070029ff3e3c.js",
         "/fast-book-reader/www/manifest.webmanifest",
         "/fast-book-reader/www/polyfills.f8bea4ae787ca74b.js",
         "/fast-book-reader/www/runtime.5ef1a2d0243a1789.js",
-        "/fast-book-reader/www/styles.0d4a70ba58bd69d2.css"
+        "/fast-book-reader/www/styles.7bc6c0d925cb54dd.css"
       ],
       "patterns": []
     },
@@ -68,12 +68,12 @@
     "/fast-book-reader/www/assets/icons/icon-72x72.png": "c4465aa2e462704b2890dcf1dbc15173e09b0248",
     "/fast-book-reader/www/assets/icons/icon-96x96.png": "612d2c3d4ba75d4c9d2bd70a415f8a0bbc0bf145",
     "/fast-book-reader/www/assets/shapes.svg": "5413e95adabcb2cb639970051f55e0ddb64ace53",
-    "/fast-book-reader/www/index.html": "77b98d1a1b87959b05f208412500758fae697627",
-    "/fast-book-reader/www/main.9aabde7b26b91bba.js": "bcfca6a0d4fde872b24d7ef58363d707bed6611f",
-    "/fast-book-reader/www/manifest.webmanifest": "9a088b7c4339228d1082e666ce105dc889bc180c",
+    "/fast-book-reader/www/index.html": "b18d9154ad29dbe20dfeecbecb8d075e71d9d12c",
+    "/fast-book-reader/www/main.e4df070029ff3e3c.js": "7a16959ef8d609691821317976c26adb80b84aba",
+    "/fast-book-reader/www/manifest.webmanifest": "e4c6c948e1fefb5517187cfa3d882b182499b970",
     "/fast-book-reader/www/polyfills.f8bea4ae787ca74b.js": "94e2231d9753eae6345172074aacc726a98a0c96",
     "/fast-book-reader/www/runtime.5ef1a2d0243a1789.js": "68fc72700a576961c0488f8f333d69dfe76eb6f9",
-    "/fast-book-reader/www/styles.0d4a70ba58bd69d2.css": "c110f357a80b749d5599130d88dd3e32d4b772cb"
+    "/fast-book-reader/www/styles.7bc6c0d925cb54dd.css": "c744b0d20135a69da7f369869a87fa1965b3e331"
   },
   "navigationUrls": [
     {

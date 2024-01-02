@@ -6,7 +6,6 @@ export class Book {
   constructor(
     private _id: string,
     private _title: string,
-    private _content: File,
     private _createdAt: Date = new Date(),
     private _length: number = 0,
     position: number = 0,
@@ -33,13 +32,8 @@ export class Book {
     return this._length;
   }
 
-
   get title(): string {
     return this._title;
-  }
-
-  get content(): File {
-    return this._content;
   }
 
   get createdAt(): Date {
@@ -50,7 +44,6 @@ export class Book {
     return {
       id: this._id,
       title: this._title,
-      content: this._content,
       createdAt: this._createdAt,
       length: this._length,
       position: this.#position(),
@@ -61,7 +54,6 @@ export class Book {
     return new Book(
       json.id,
       json.title,
-      json.content,
       json.createdAt,
       json.length,
       json.position,

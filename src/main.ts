@@ -17,12 +17,14 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideIonicAngular(),
+    provideIonicAngular({
+      mode:'ios',
+    }),
     provideRouter(routes),
     importProvidersFrom(IonicStorageModule.forRoot()),
     provideServiceWorker('ngsw-worker.js', {
         enabled: !isDevMode(),
         registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
 ],
 });

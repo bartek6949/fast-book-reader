@@ -20,13 +20,14 @@ import {addIcons} from "ionicons";
 import {caretBack, playCircle, arrowBack} from "ionicons/icons";
 import {Book} from "../domain/books/book";
 import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import {CdkVirtualForOf, CdkVirtualScrollViewport, ScrollingModule} from "@angular/cdk/scrolling";
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonBackButton, IonButtons, IonFooter, IonTabs, IonTabBar, IonTabButton, IonIcon, AsyncPipe, NgIf, NgForOf, NgClass, RouterLink]
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonBackButton, IonButtons, IonFooter, IonTabs, IonTabBar, IonTabButton, IonIcon, AsyncPipe, NgIf, NgForOf, NgClass, RouterLink, ScrollingModule, CdkVirtualScrollViewport, CdkVirtualForOf]
 })
 export class Tab2Page {
 
@@ -37,7 +38,6 @@ export class Tab2Page {
   loaded = false;
 
   constructor(
-    private readerService: ReaderService,
     private bookService: BooksService,
     private router: ActivatedRoute,
     ) {
@@ -51,9 +51,7 @@ export class Tab2Page {
       return;
     }
     this.book = book;
-    const parsedBookContent = await this.readerService.getParsedBook(book.content);
-
-    this.textContent = await parsedBookContent.getContent();
+    this.textContent = await this.bookService.getContent(book);
 
     this.position = book.position;
     this.progress = computed(() => {

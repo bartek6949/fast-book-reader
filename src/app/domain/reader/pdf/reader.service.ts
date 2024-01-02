@@ -16,6 +16,6 @@ export class ReaderService {
   async getParsedBook(pdf: File): Promise<ParsedBook> {
     const loadingTask = PDFJS.getDocument({ url: URL.createObjectURL(pdf) });
     const pdfDocument = await loadingTask.promise;
-    return new ParsedBook(pdfDocument);
+    return new ParsedBook(pdfDocument, pdf);
   }
 }
