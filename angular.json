@@ -35,7 +35,11 @@
             "styles": ["src/theme/variables.scss", "src/global.scss"],
             "scripts": [],
             "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "ngswConfigPath": "ngsw-config.json",
+            "allowedCommonJsDependencies": [
+              "localforage",
+              "pdfjs-dist"
+            ]
           },
           "configurations": {
             "production": {

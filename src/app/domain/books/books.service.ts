@@ -47,7 +47,9 @@ export class BooksService {
 
     const parsedBookContent = await this.readerService.getParsedBook(file);
     this.currentLoadedBook.update(_ => parsedBookContent);
-    const data = await parsedBookContent.parse();
+    try {
+      const data = await parsedBookContent.parse();
+
     const length = data.length;
 
     const newBook = new Book(
@@ -61,6 +63,9 @@ export class BooksService {
     this.books.update(books => [...books, newBook]);
     await this.saveToStorage();
     await this.storage.set(newBook.id, data);
+    } catch (e) {
+      alert(e);
+    }
   }
 
   private async saveToStorage() {

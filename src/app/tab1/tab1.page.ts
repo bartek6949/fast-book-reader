@@ -59,12 +59,12 @@ export class Tab1Page {
 
     this.loadingBookName = computed(() => {
       const book = this.booksService.currentLoadedBook();
-      return book!.name();
+      return book ? book.name(): '';
     });
 
     this.loadingBookProgress = computed(() => {
       const book = this.booksService.currentLoadedBook();
-      return book!.progress();
+      return book ? book.progress() : 0;
     });
 
   }

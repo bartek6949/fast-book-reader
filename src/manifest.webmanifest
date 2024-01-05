@@ -1,8 +1,8 @@
 {
   "name": "FastAppReader",
-  "short_name": "app",
-  "theme_color": "#000",
-  "background_color": "#000",
+  "short_name": "FastAppReader",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
