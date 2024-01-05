@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "timestamp": 1704478698481,
+  "index": "/fast-book-reader/www/index.html",
+  "assetGroups": [
+    {
+      "name": "FastBookReader",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/fast-book-reader/www/195.724a4846a5b0b416.js",
+        "/fast-book-reader/www/236.c254aab55b37de70.js",
+        "/fast-book-reader/www/250.1344b70936b350ec.js",
+        "/fast-book-reader/www/255.7b742cd7a4577c88.js",
+        "/fast-book-reader/www/313.6fbae97c10b0da97.js",
+        "/fast-book-reader/www/594.8d5e251607dea459.js",
+        "/fast-book-reader/www/595.e6c09ad76e515d99.js",
+        "/fast-book-reader/www/index.html",
+        "/fast-book-reader/www/main.2ddb05453aa88873.js",
+        "/fast-book-reader/www/manifest.webmanifest",
+        "/fast-book-reader/www/polyfills.b362dbca54e67bf2.js",
+        "/fast-book-reader/www/runtime.b007cb714f5571c0.js",
+        "/fast-book-reader/www/styles.5edd568542b0797a.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/fast-book-reader/www/assets/icon/favicon.png",
+        "/fast-book-reader/www/assets/icons/icon-128x128.png",
+        "/fast-book-reader/www/assets/icons/icon-144x144.png",
+        "/fast-book-reader/www/assets/icons/icon-152x152.png",
+        "/fast-book-reader/www/assets/icons/icon-192x192.png",
+        "/fast-book-reader/www/assets/icons/icon-384x384.png",
+        "/fast-book-reader/www/assets/icons/icon-512x512.png",
+        "/fast-book-reader/www/assets/icons/icon-72x72.png",
+        "/fast-book-reader/www/assets/icons/icon-96x96.png",
+        "/fast-book-reader/www/assets/shapes.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/fast-book-reader/www/195.724a4846a5b0b416.js": "3ff7033b606217d1ab252580642a9769aaf63147",
+    "/fast-book-reader/www/236.c254aab55b37de70.js": "8d12ae8972059d7249cd6247f213c34d92aa5f2b",
+    "/fast-book-reader/www/250.1344b70936b350ec.js": "863974f0a5a56e9bab6331026665e292feeeed49",
+    "/fast-book-reader/www/255.7b742cd7a4577c88.js": "1b2fd255cd275ef7b8a51090284b5a3f9f5b22a0",
+    "/fast-book-reader/www/313.6fbae97c10b0da97.js": "e7fc04d0ea58b4ca723c17bb6df67d939dd8b8cc",
+    "/fast-book-reader/www/594.8d5e251607dea459.js": "8a72d2ccb4a3302070f5a4469de8580d641fb536",
+    "/fast-book-reader/www/595.e6c09ad76e515d99.js": "840575bf39dc3bdd2f6e7a5a5e4cc727f1947e21",
+    "/fast-book-reader/www/assets/icon/favicon.png": "c4465aa2e462704b2890dcf1dbc15173e09b0248",
+    "/fast-book-reader/www/assets/icons/icon-128x128.png": "889c81a05a16aa207e35db0aa4bd466bce083d7a",
+    "/fast-book-reader/www/assets/icons/icon-144x144.png": "8b4a6f81ff7c99423b5971e4fb223970e0c24118",
+    "/fast-book-reader/www/assets/icons/icon-152x152.png": "9f650a0e4e793408f1855d2fe85c84738bc2db79",
+    "/fast-book-reader/www/assets/icons/icon-192x192.png": "4425b6c498b14526302fce8c5f7ec9a10eeff93f",
+    "/fast-book-reader/www/assets/icons/icon-384x384.png": "578d76b470af36666552fddb4d70e8f0f8ff4d09",
+    "/fast-book-reader/www/assets/icons/icon-512x512.png": "cf212150963a012c85a0a11ab7b7d47f4a330aaa",
+    "/fast-book-reader/www/assets/icons/icon-72x72.png": "c4465aa2e462704b2890dcf1dbc15173e09b0248",
+    "/fast-book-reader/www/assets/icons/icon-96x96.png": "612d2c3d4ba75d4c9d2bd70a415f8a0bbc0bf145",
+    "/fast-book-reader/www/assets/shapes.svg": "5413e95adabcb2cb639970051f55e0ddb64ace53",
+    "/fast-book-reader/www/index.html": "35279830337e6e79c1c5254b11ec67ed3af536fa",
+    "/fast-book-reader/www/main.2ddb05453aa88873.js": "e9f01017500625e115757a8506edbff31384d928",
+    "/fast-book-reader/www/manifest.webmanifest": "0985d72222ec00c246eaedc0f1c1fa312891e45b",
+    "/fast-book-reader/www/polyfills.b362dbca54e67bf2.js": "c8d69cb02d4774ec8efd9ab403c2f9819714f236",
+    "/fast-book-reader/www/runtime.b007cb714f5571c0.js": "56f74e66f18f4ecc8a53f82daec767c9283e7c99",
+    "/fast-book-reader/www/styles.5edd568542b0797a.css": "d7dcf5b18d49be0e4a45f5c2284c2a50f2e97438"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
