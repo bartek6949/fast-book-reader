@@ -17,7 +17,7 @@ import {ReaderService} from "../domain/reader/pdf/reader.service";
 import {BooksService} from "../domain/books/books.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {addIcons} from "ionicons";
-import {caretBack, playCircle, arrowBack} from "ionicons/icons";
+import {caretBack, playCircle, arrowBack, copy} from "ionicons/icons";
 import {Book, Pages} from "../domain/books/book";
 import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {CdkVirtualForOf, CdkVirtualScrollViewport, ScrollingModule} from "@angular/cdk/scrolling";
@@ -48,6 +48,7 @@ export class Tab2Page {
   private async loadContent() {
     const book = this.bookService.getBook(this.router.snapshot.params['id']);
     if (!book) {
+      setTimeout(() => this.loadContent(), 500);
       return;
     }
     this.book = book;
@@ -62,7 +63,17 @@ export class Tab2Page {
     this.loaded = true;
   }
 
-  updatePosition(i: number) {
-    this.book?.position.update(_ => i);
+  updatePosition(e: Event) {
+    const selection = (<any>window).getSelection();
+    const range = selection.getRangeAt(0);
+    console.log({p:range, e:e});
+    console.log({w: this.getTextContent2().slice(range.startOffset, range.endOffset)})
+    this.book?.position.update(_ => 10);
+  }
+
+  public getTextContent2() {
+    const r = [...this.textContent];
+    r[this.book?.position() || 0] = '<span class="selected">' + r[this.book?.position() || 0] + '</span>';
+    return r.join(' ');
   }
 }

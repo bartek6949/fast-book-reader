@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back" default-href="/" [routerLink]="['/']"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Speed</ion-label>
+      <ion-range min="0" max="1000" step="10" [pin]="true" [(ngModel)]="readSpeed">
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Word</ion-label>
+      <ion-range min="0" max="20" step="1" [snaps]="true" [pin]="true" [(ngModel)]="readSpeed">
+      </ion-range>
+    </ion-item>
+  </ion-list>
+</ion-content>
