@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ParsedBook} from "./parsed-book";
+import {BookParser} from "./book-parser";
 
 import * as PDFJS from 'pdfjs-dist/legacy/build/pdf';
 
@@ -23,7 +23,7 @@ export class ReaderService {
 
   constructor() { }
 
-  async getParsedBook(pdf: File): Promise<ParsedBook> {
+  async getParsedBook(pdf: File): Promise<BookParser> {
     const loadingTask = PDFJS.getDocument({
       url: URL.createObjectURL(pdf),
       stopAtErrors: false,
@@ -34,6 +34,6 @@ export class ReaderService {
 
     const pdfDocument = await loadingTask.promise;
 
-    return new ParsedBook(pdfDocument, pdf);
+    return new BookParser(pdfDocument, pdf);
   }
 }

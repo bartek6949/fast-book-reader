@@ -9,29 +9,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <!--<cdk-virtual-scroll-viewport itemSize="1" >-->
+<ion-content class="ion-padding" [scrollY]="false">
+  <cdk-virtual-scroll-viewport [itemSize]="100" [minBufferPx]="2000" maxBufferPx="4000">
     <div class="book-content">
-    <span *ngFor="let world of textContent; let i = index" [ngClass]="{'selected': i === position()}"
-          (click)="updatePosition(i)">
-      {{ world }}
-    </span>
+      <div  *cdkVirtualFor="let page of book?.pages; let j = index">
+        <span *ngFor="let world of book?.getContent(j, textContent); let i = index" [ngClass]="{'selected': page.start + i === position()}"
+              (click)="updatePosition(page.start + i )">
+          {{ world }}
+        </span>
+      </div>
     </div>
-  <!-- </cdk-virtual-scroll-viewport>-->
- </ion-content>
+  </cdk-virtual-scroll-viewport>
+</ion-content>
 
- <ion-footer *ngIf="this.loaded">
-   <ion-tab-bar slot="bottom">
-     <ion-tab-button tab="home">
-       <strong>Until end:</strong>
-       {{ position() }}
-     </ion-tab-button>
-     <ion-tab-button tab="play-circle" [routerLink]="['/','book', book?.id, 'read']">
-       <ion-icon size="large" name="play-circle"></ion-icon>
-     </ion-tab-button>
-     <ion-tab-button tab="search">
-       <strong>Progress:</strong>
-       {{ progress() }} %
-     </ion-tab-button>
-   </ion-tab-bar>
- </ion-footer>
+<ion-footer *ngIf="this.loaded">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <strong>Until end:</strong>
+      {{ position() }}
+    </ion-tab-button>
+    <ion-tab-button tab="play-circle" [routerLink]="['/','book', book?.id, 'read']">
+      <ion-icon size="large" name="play-circle"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <strong>Progress:</strong>
+      {{ progress() }} %
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

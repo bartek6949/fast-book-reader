@@ -18,7 +18,7 @@ import {BooksService} from "../domain/books/books.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {addIcons} from "ionicons";
 import {caretBack, playCircle, arrowBack} from "ionicons/icons";
-import {Book} from "../domain/books/book";
+import {Book, Pages} from "../domain/books/book";
 import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {CdkVirtualForOf, CdkVirtualScrollViewport, ScrollingModule} from "@angular/cdk/scrolling";
 

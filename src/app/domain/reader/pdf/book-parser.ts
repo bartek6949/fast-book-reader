@@ -1,7 +1,14 @@
 import {PDFDocumentProxy} from "pdfjs-dist";
 import {computed, signal} from "@angular/core";
+import {Pages} from "../../books/book";
 
-export class ParsedBook {
+export class ParsedBookContent {
+  constructor(public content: string[],
+              public pages: Pages) {
+  }
+}
+
+export class BookParser {
   currentPage = signal(0)
   allPages = signal(1)
   progress = computed(() => this.currentPage() / this.allPages())
@@ -14,9 +21,10 @@ export class ParsedBook {
     return this.pdf.name;
   }
 
-  public async parse(): Promise<string[]> {
+  public async parse(): Promise<ParsedBookContent> {
     let content: string[] = [];
     const pages = this.pdfDocument.numPages;
+    const pagesInfo: Pages = [];
     this.allPages.update(_ => pages);
 
     //TODO ad async load pages...
@@ -25,8 +33,16 @@ export class ParsedBook {
         console.log("Parsing page " + i);
         const page = await this.pdfDocument.getPage(i);
         const textContent = await page.getTextContent();
-        const pageContent = textContent.items.map((item: any) => item.str.split(" "));
-        content = content.concat(...pageContent);
+        const pageContent:string[][] = textContent.items.map((item: any) => item.str.split(" "));
+        const cleared:string[] = ([] as string[]).concat(...pageContent).map(it =>  it.trim()).filter(it => it.length > 0)
+
+        content.push(...cleared)
+
+        pagesInfo.push({
+          page: i,
+          start: content.length - cleared.length,
+          end: content.length
+        });
 
         page.cleanup()
 
@@ -36,11 +52,10 @@ export class ParsedBook {
       }
     }
     await this.pdfDocument.cleanup();
-    return content.filter(it => it.trim().length > 0)
+    return new ParsedBookContent(
+      content,
+      pagesInfo
+    );
   }
 
-}
-
-function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }
