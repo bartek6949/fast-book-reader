@@ -71,6 +71,9 @@ export class Tab2Page {
     this.book?.position.update(_ => 10);
   }
 
+  update(p: number) {
+    this.book?.position.update(_ => p);
+  }
   public getTextContent2() {
     const r = [...this.textContent];
     r[this.book?.position() || 0] = '<span class="selected">' + r[this.book?.position() || 0] + '</span>';

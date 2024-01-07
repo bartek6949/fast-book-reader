@@ -10,15 +10,16 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <div class="book-content" (click)="updatePosition($event)">
-      <div [innerHTML]="getTextContent2()"></div>
+    <div class="book-content">
+
+
       <div  *ngFor="let page of book?.pages; let j = index">
 
-       <!--- <span *ngFor="let world of book?.getContent(j, textContent); let i = index" [ngClass]="{'selected': page.start + i === position()}"
-              (click)="updatePosition(page.start + i )">
+       <span *ngFor="let world of book?.getContent(j, textContent); let i = index" [ngClass]="{'selected': page.start + i === position()}"
+              (click)="update(page.start + i )">
           {{ world }}
         </span>
-        --->
+
       </div>
     </div>
 </ion-content>
