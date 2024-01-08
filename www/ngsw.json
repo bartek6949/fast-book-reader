@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1704651294715,
+  "timestamp": 1704748963116,
   "index": "/fast-book-reader/www/index.html",
   "assetGroups": [
     {
@@ -19,7 +19,7 @@
         "/fast-book-reader/www/594.878de81c74b06b43.js",
         "/fast-book-reader/www/595.977adb5f788382f5.js",
         "/fast-book-reader/www/index.html",
-        "/fast-book-reader/www/main.a81a51b9de4bbb2a.js",
+        "/fast-book-reader/www/main.0f450c0044d9c06a.js",
         "/fast-book-reader/www/manifest.webmanifest",
         "/fast-book-reader/www/polyfills.78359542809b0bf5.js",
         "/fast-book-reader/www/runtime.093d60272073e368.js",
@@ -68,8 +68,8 @@
     "/fast-book-reader/www/assets/icons/icon-72x72.png": "c4465aa2e462704b2890dcf1dbc15173e09b0248",
     "/fast-book-reader/www/assets/icons/icon-96x96.png": "612d2c3d4ba75d4c9d2bd70a415f8a0bbc0bf145",
     "/fast-book-reader/www/assets/shapes.svg": "5413e95adabcb2cb639970051f55e0ddb64ace53",
-    "/fast-book-reader/www/index.html": "10837b0b0a0fde040f5bb80058a7299acf7827dc",
-    "/fast-book-reader/www/main.a81a51b9de4bbb2a.js": "307abe7fb084b1ed8e762eec46f0c7fd5a1947d0",
+    "/fast-book-reader/www/index.html": "7e5323233aa4e4caee80a964983cc79df3011b60",
+    "/fast-book-reader/www/main.0f450c0044d9c06a.js": "006c82422043370f5769384d44afc5ec377a8434",
     "/fast-book-reader/www/manifest.webmanifest": "0985d72222ec00c246eaedc0f1c1fa312891e45b",
     "/fast-book-reader/www/polyfills.78359542809b0bf5.js": "6d15082f024df72a6d4b5bfcd7ca9a017ef2e495",
     "/fast-book-reader/www/runtime.093d60272073e368.js": "659a7f9be1e37bcd4e86e973228e51544d24182d",

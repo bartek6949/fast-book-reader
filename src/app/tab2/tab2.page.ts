@@ -69,49 +69,34 @@ export class Tab2Page {
       }
     );
     this.loaded = true;
+    setTimeout(() =>
+      (<any>document).querySelector(".selected").scrollIntoView()
+  , 1);
   }
 
   updatePosition($event: any) {
     console.log($event);
     const selection = (<any>window).getSelection();
-    debugger;
-    const range = selection.getRangeAt(0);
-    console.log(range);
     let context;
     let addP = 0;
-    if (range.startContainer.previousElementSibling != null) {
-      //should find after position
-      context = [...this.textContent].slice(this.position() + 1);
-      addP = this.position() + 1;
-    } else if (range.startContainer.parentElement.nodeName === 'SPAN') {
+    let node = selection.baseNode.previousSibling;
+
+    if(!node && selection.baseNode.parentNode.nodeName === "SPAN") {
       return;
-    } else {
-      //should find begin from start
-      context = this.textContent;
-      addP = 0;
     }
 
-    console.log({
-      addP,
-      a: range.getClientRects(),
-      o:range.startOffset,
-      start: {s: range.startContainer.previousElementSibling, o: range.startOffset},
-      s: range.startContainer,
-      text: this.textContent.slice(8459, 8459+50),
-    });
+    let longText = "";
 
-    let offset = 1;
-
-    for (let elem of context) {
-      offset += elem.unescape().length + 1;
-
-      if (offset >= range.startOffset) {
-        this.book?.position.update(_ => addP);
-        console.log({addP});
-        break
-      }
-      addP++;
+    while (node){
+      longText += node.textContent
+      node = node.previousSibling;
     }
+
+    longText += selection.baseNode.textContent.substring(0, selection.baseOffset);
+
+    addP = longText.split(" ").length-1;
+
+    this.book?.position.update(_ => addP);
   }
 
 }
