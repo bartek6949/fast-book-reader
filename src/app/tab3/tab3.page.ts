@@ -9,7 +9,6 @@ import {
   IonTabBar,
   IonTabButton
 } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import {ReaderService} from "../domain/reader/pdf/reader.service";
 import {BooksService} from "../domain/books/books.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -23,7 +22,7 @@ import {NgForOf, NgIf} from "@angular/common";
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonFooter, IonIcon, IonTabBar, IonTabButton, NgForOf, NgIf],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonIcon, IonTabBar, IonTabButton, NgForOf, NgIf],
 })
 export class Tab3Page {
   book: Book|undefined;

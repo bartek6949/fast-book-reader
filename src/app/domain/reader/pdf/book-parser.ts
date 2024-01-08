@@ -1,7 +1,7 @@
 import {PDFDocumentProxy} from "pdfjs-dist";
 import {computed, signal} from "@angular/core";
 import {Pages} from "../../books/book";
-
+import "../../../pkg/string";
 export class ParsedBookContent {
   constructor(public content: string[],
               public pages: Pages) {
@@ -33,7 +33,7 @@ export class BookParser {
         console.log("Parsing page " + i);
         const page = await this.pdfDocument.getPage(i);
         const textContent = await page.getTextContent();
-        const pageContent:string[][] = textContent.items.map((item: any) => item.str.split(" "));
+        const pageContent:string[][] = textContent.items.map((item: any) => item.str.escape().split(" "));
         const cleared:string[] = ([] as string[]).concat(...pageContent).map(it =>  it.trim()).filter(it => it.length > 0)
 
         content.push(...cleared)

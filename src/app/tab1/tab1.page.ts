@@ -27,7 +27,6 @@ import {
   IonProgressBar,
   IonModal, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonFooter, IonTabBar, IonTabButton
 } from '@ionic/angular/standalone';
-import {ExploreContainerComponent} from '../explore-container/explore-container.component';
 import {BooksService} from "../domain/books/books.service";
 import {Book} from "../domain/books/book";
 import {AsyncPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
@@ -40,7 +39,7 @@ import {add, chevronForward, trash, settings} from 'ionicons/icons';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonList, IonItem, IonIcon, IonLabel, IonText, IonNote, NgForOf, AsyncPipe, IonFab, IonFabButton, RouterLink, IonItemOptions, IonItemOption, IonItemSliding, NgIf, DatePipe, IonProgressBar, IonModal, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonFooter, IonTabBar, IonTabButton],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel, IonText, IonNote, NgForOf, AsyncPipe, IonFab, IonFabButton, RouterLink, IonItemOptions, IonItemOption, IonItemSliding, NgIf, DatePipe, IonProgressBar, IonModal, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonFooter, IonTabBar, IonTabButton],
 })
 export class Tab1Page {
   public books: Signal<Book[]>;
