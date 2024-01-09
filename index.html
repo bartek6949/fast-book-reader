@@ -4,29 +4,129 @@
   <meta charset="UTF-8">
   <title>Fast Book Reader</title>
   <link rel="icon" type="image/png" href="src/assets/icon/favicon.png"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <style>
+    :root {
+      --swiper-pagination-bullet-inactive-color: #fff;
+    }
+
+    footer a {
+
+      margin-top: 5px;
+    }
+
+    .swiper img {
+      max-height: 600px;
+      margin: auto;
+    }
+  </style>
 </head>
-<body>
-FastBookReader is an innovative application designed to enhance your book reading experience. It employs a unique method of displaying individual words from a book at a user-selected pace. This approach facilitates faster reading, allowing you to absorb and enjoy more books in less time. Dive into the world of rapid reading with FastBookReader!
-<img src="landing/assets/IMG_1660-portrait.png">
-<img src="landing/assets/IMG_1661-portrait.png">
-<img src="landing/assets/IMG_1662-portrait.png">
-<img src="landing/assets/IMG_1663-portrait.png">
-FastBookReader is not just a book reader, it’s a revolution in reading. This application is designed to transform the way you read books. It’s unique in that it displays individual words from a book at a pace chosen by you, enabling faster reading and allowing you to enjoy more books in less time.
+<body class="bg-gray-900 text-white">
+<header class="text-center py-16">
+  <h1 class="text-4xl font-bold">Fast Book Reader</h1>
+  <p class="text-xl mt-2">
+    <i>
+      FastBookReader is an innovative application designed to enhance your book reading experience. It employs a unique
+      method of displaying individual words from a book at a user-selected pace. This approach facilitates faster
+      reading, allowing you to absorb and enjoy more books in less time. Dive into the world of rapid reading with
+      FastBookReader!
 
-Key features of FastBookReader include:
+    </i></p>
+</header>
 
-- PDF Compatibility: FastBookReader supports books in PDF format, allowing you to enjoy a wide range of literature.
-- Customizable Reading Speed: You can select the number of words displayed per minute, tailoring the reading speed to your comfort.
-- Words Per Tick: The app allows you to choose the number of words displayed per tick, providing further customization of your reading experience.
-- Free and Open Source: FastBookReader is 100% free and open source. We believe in the power of community and shared knowledge.
-- Ad-Free Experience: We value your reading experience. That’s why FastBookReader has no ads, ensuring uninterrupted reading.
-- Privacy-Focused: We respect your privacy. FastBookReader does not track users, collect data, or require an internet connection. Your reading habits remain your own.
-- Local File Storage: All books are stored locally on your device, allowing you to read anytime, anywhere.
-Dive into the world of rapid reading with FastBookReader, where reading is fast, efficient, and tailored to you.
+<section class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="landing/assets/IMG_1660-portrait.png"></div>
+    <div class="swiper-slide"><img src="landing/assets/IMG_1661-portrait.png"></div>
+    <div class="swiper-slide"><img src="landing/assets/IMG_1662-portrait.png"></div>
+    <div class="swiper-slide"><img src="landing/assets/IMG_1663-portrait.png"></div>
+  </div>
+  <div class="swiper-pagination"></div>
+</section>
+<div class="text-center py-16">
+  <p class="mt-2">
+    <i>
+      FastBookReader is not just a book reader, it’s a revolution in reading. This application is designed to transform
+      the way you read books. It’s unique in that it displays individual words from a book at a pace chosen by you,
+      enabling faster reading and allowing you to enjoy more books in less time.
 
-<a href="https://bartek6949.github.io/fast-book-reader/app">Get FastBookReader today!</a>
+    </i>
+  </p>
+</div>
 
-<a href="https://github.com/bartek6949/fast-book-reader">Go To Github</a>
+<section class="features px-8 py-12">
+  <h2 class="text-3xl font-bold text-center mb-8">Key Features</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+      <h3 class="text-xl font-bold mb-2">PDF Compatibility</h3>
+      <p>FastBookReader supports books in PDF format, allowing you to enjoy a wide range of literature.</p>
+    </div>
+
+    <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+      <h3 class="text-xl font-bold mb-2">Customizable Reading Speed</h3>
+      <p>You can select the number of words displayed per minute, tailoring the reading speed to your comfort.</p>
+    </div>
+    <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+      <h3 class="text-xl font-bold mb-2">Words Per Tick</h3>
+      <p>The app allows you to choose the number of words displayed per tick, providing further customization of your
+        reading experience.</p>
+    </div>
+    <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+      <h3 class="text-xl font-bold mb-2">Free and Open Source</h3>
+      <p>FastBookReader is 100% free and open source. We believe in the power of community and shared knowledge.</p>
+    </div>
+    <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+      <h3 class="text-xl font-bold mb-2">Ad-Free Experience</h3>
+      <p>We value your reading experience. That’s why FastBookReader has no ads, ensuring uninterrupted reading.</p>
+    </div>
+    <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+      <h3 class="text-xl font-bold mb-2">Privacy-Focused</h3>
+      <p>We respect your privacy. FastBookReader does not track users, collect data, or require an internet connection.
+        Your reading habits remain your own.</p>
+    </div>
+    <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+      <h3 class="text-xl font-bold mb-2">Local File Storage</h3>
+      <p>All books are stored locally on your device, allowing you to read anytime, anywhere.</p>
+    </div>
+  </div>
+</section>
+
+<div class="text-center py-16">
+  <p class="mt-2">
+    <i>
+      Dive into the world of rapid reading with FastBookReader, where reading is fast, efficient, and tailored to you.
+
+    </i>
+  </p>
+</div>
+
+<footer class="text-center py-8">
+  <p>
+    <a href="https://bartek6949.github.io/fast-book-reader/app"
+       class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition  ">Get
+      FastBookReader today!</a>
+  </p>
+  <p><a href="https://github.com/bartek6949/fast-book-reader"
+        class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4 transition ">
+    Go To Github <img width="30px" style="display: inline" src="landing/assets/github-mark-white.svg">
+  </a></p>
+</footer>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
+
 </body>
 </html>
