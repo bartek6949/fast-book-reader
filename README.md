@@ -2,6 +2,7 @@
 FastBookReader is an innovative application designed to enhance your book reading experience. It employs a unique method of displaying individual words from a book at a user-selected pace. This approach facilitates faster reading, allowing you to absorb and enjoy more books in less time. Dive into the world of rapid reading with FastBookReader!
 
 ## Features
+* Use as PWA
 * Read books in pdf format
 * Read books with selected words per minute
 * Read books with selected words per tick
