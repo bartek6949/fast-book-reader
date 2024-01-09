@@ -16,3 +16,6 @@ FastBookReader is an innovative application designed to enhance your book readin
 
 [FastBookReader DEMO](https://bartek6949.github.io/fast-book-reader/www/)
 
+## Preview
+![FastBookReader](landing/assets/IMG_1660-portrait.png)
+![FastBookReader](landing/assets/IMG_1663-portrait.png)
