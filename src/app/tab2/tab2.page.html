@@ -10,8 +10,8 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <div class="book-content" (click)="updatePosition($event)" *ngIf="!!textContentToDisplay">
-      <div [innerHTML]="textContentToDisplay()"></div>
+    <div class="book-content"  *ngIf="!!textContentToDisplay">
+      <div (click)="updatePosition($event)" [innerHTML]="textContentToDisplay()"></div>
     </div>
 </ion-content>
 
