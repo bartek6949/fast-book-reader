@@ -6,14 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
-    <ion-fab-button (click)="fileInput.click()">
-      <input #fileInput type="file" hidden (change)="doFileInput($event)" accept="application/pdf">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+<ion-content class="ion-padding">
 
 
   <ion-list [inset]="true" *ngIf="books">
@@ -21,7 +14,7 @@
       <i>Add first book Click here</i>
     </ion-item>
     <ion-item-sliding *ngFor="let book of books()">
-      <ion-item [button]="true"  [routerLink]="['/','book', book.id]">
+      <ion-item [button]="true" [routerLink]="['/','book', book.id]">
         <ion-label>
           <h2>{{ book.title }}</h2>
           <p>
@@ -33,27 +26,27 @@
         </ion-label>
 
       </ion-item>
-        <ion-item-options slot="end" >
-          <ion-item-option [type]="'button'" color="danger" expandable="true" (click)="remove(book.id)">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
+      <ion-item-options slot="end">
+        <ion-item-option [type]="'button'" color="danger" expandable="true" (click)="remove(book.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
 
     </ion-item-sliding>
   </ion-list>
 
   <ion-modal id="example-modal" [isOpen]="isModalOpen" [backdropDismiss]="false">
     <ng-template>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>{{loadingBookName()}}</ion-card-title>
-            <ion-card-subtitle>Loading:</ion-card-subtitle>
-          </ion-card-header>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ loadingBookName() }}</ion-card-title>
+          <ion-card-subtitle>Loading:</ion-card-subtitle>
+        </ion-card-header>
 
-          <ion-card-content>
-            <ion-progress-bar [value]="loadingBookProgress()"></ion-progress-bar>
-          </ion-card-content>
-        </ion-card>
+        <ion-card-content>
+          <ion-progress-bar [value]="loadingBookProgress()"></ion-progress-bar>
+        </ion-card-content>
+      </ion-card>
     </ng-template>
   </ion-modal>
 
@@ -61,6 +54,11 @@
 
 <ion-footer>
   <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="fileInput.click()">
+      <input #fileInput type="file" hidden (change)="doFileInput($event)" accept="application/pdf">
+      <ion-icon name="add"></ion-icon>
+      Add Book
+    </ion-tab-button>
     <ion-tab-button [routerLink]="['/','settings']">
       <ion-icon name="settings"></ion-icon>
       Settings

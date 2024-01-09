@@ -13,13 +13,13 @@
   <ion-list>
     <ion-item>
       <ion-label>Speed</ion-label>
-      <ion-range min="0" max="1000" step="10" [pin]="true" [(ngModel)]="readSpeed">
+      <ion-range min="10" max="1000" step="10" [pin]="true" [ngModel]="readSpeed()" (ionChange)="updateWPM($event)">
       </ion-range>
     </ion-item>
 
     <ion-item>
       <ion-label>Word</ion-label>
-      <ion-range min="0" max="20" step="1" [snaps]="true" [pin]="true" [(ngModel)]="readSpeed">
+      <ion-range min="1" max="20" step="1" [snaps]="true" [pin]="true" [ngModel]="wordsOnPage()" (ionChange)="updateWOP($event)">
       </ion-range>
     </ion-item>
   </ion-list>

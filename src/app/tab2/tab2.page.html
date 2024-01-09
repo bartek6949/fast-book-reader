@@ -18,7 +18,7 @@
 <ion-footer *ngIf="this.loaded">
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home">
-      <strong>Until end:</strong>
+      <strong>Position:</strong>
       {{ position() }}
     </ion-tab-button>
     <ion-tab-button tab="play-circle" [routerLink]="['/','book', book?.id, 'read']">

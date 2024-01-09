@@ -1,4 +1,4 @@
-import {Component, computed, OnDestroy, signal, Signal} from '@angular/core';
+import {Component, computed, OnDestroy, signal, Signal, WritableSignal} from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
@@ -16,6 +16,7 @@ import {addIcons} from "ionicons";
 import {playBackCircle, playForwardCircle} from "ionicons/icons";
 import {Book} from "../domain/books/book";
 import {NgForOf, NgIf} from "@angular/common";
+import {SettingsService} from "../domain/settings/settings.service";
 
 @Component({
   selector: 'app-tab3',
@@ -25,23 +26,26 @@ import {NgForOf, NgIf} from "@angular/common";
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonIcon, IonTabBar, IonTabButton, NgForOf, NgIf],
 })
 export class Tab3Page {
-  book: Book|undefined;
+  book: Book | undefined;
   textContent: string[] = ["Loading..."];
   progress!: Signal<number>;
   position: Signal<number> = signal(0);
   loaded = false;
-  speed = signal(200);
+  speed: WritableSignal<number>;
+  wop: WritableSignal<number>
   private timer: any;
 
   constructor(
-    private readerService: ReaderService,
     private bookService: BooksService,
     private router: ActivatedRoute,
-    private routerService: Router
+    private routerService: Router,
+    private settingsService: SettingsService,
   ) {
     addIcons({playBackCircle, playForwardCircle})
-
+    this.speed = this.settingsService.getWPM();
+    this.wop = this.settingsService.getWOP();
   }
+
   async ionViewWillEnter() {
     await this.loadContent();
   }
@@ -55,16 +59,17 @@ export class Tab3Page {
       }
       const now = new Date().getTime();
 
-      if(now > time + 60*1000/this.speed()) {
+      if (now > time + 60 * 1000 / this.speed()*this.wop()) {
         this.book.position.update(position => {
           if (!this.book) {
             return position;
           }
-          if(position + 1 > this.book.length) {
+          if (position > this.book.length) {
             clearInterval(this.timer);
             return position;
           }
-          return position+ 1;
+
+          return position + this.wop();
         });
         time = now;
       }
@@ -91,12 +96,13 @@ export class Tab3Page {
 
     this.loaded = true;
   }
+
   public increase() {
-    this.speed.update(speed => Math.min(speed + 10, 1000));
+    this.settingsService.updateWPM(Math.min(this.speed() + 10, 1000));
   }
 
   decrease() {
-    this.speed.update(speed => Math.max(speed - 10, 10));
+    this.settingsService.updateWPM(Math.max(this.speed() - 10, 10));
   }
 
   goBack() {

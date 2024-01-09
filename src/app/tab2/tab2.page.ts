@@ -47,6 +47,10 @@ export class Tab2Page {
     this.loadContent();
   }
 
+  ionViewDidEnter() {
+    (<any>document).querySelector(".selected").scrollIntoView();
+  }
+
   private async loadContent() {
     const book = this.bookService.getBook(this.router.snapshot.params['id']);
     if (!book) {

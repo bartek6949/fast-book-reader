@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true" class="ion-padding" (click)="goBack()">
 <div class="read-area">
-  {{textContent[position()]}}
+  {{textContent.slice(position(), position() + wop()).join(' ')}}
 </div>
 </ion-content>
 <ion-footer>
@@ -11,7 +11,7 @@
     <ion-tab-button >
       {{speed()}}
       <br/>
-      w/s
+      wpm
     </ion-tab-button>
     <ion-tab-button tab="search">
       <ion-icon name="play-forward-circle" [size]="'large'" (click)="increase()"></ion-icon>
