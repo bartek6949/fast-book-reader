@@ -75,13 +75,14 @@ export class Tab2Page {
   }
 
   updatePosition($event: any) {
-    console.log($event);
-    const selection = (<any>window).getSelection();
-    let context;
-    let addP = 0;
-    let node = selection.baseNode.previousSibling;
 
-    if(!node && selection.baseNode.parentNode.nodeName === "SPAN") {
+    const selection = (<any>window).getSelection();
+    console.log($event, selection);
+
+    let addP = 0;
+    let node = selection.anchorNode.previousSibling;
+
+    if(!node && selection.anchorNode.parentNode.nodeName === "SPAN") {
       return;
     }
 
@@ -92,7 +93,7 @@ export class Tab2Page {
       node = node.previousSibling;
     }
 
-    longText += selection.baseNode.textContent.substring(0, selection.baseOffset);
+    longText += selection.anchorNode.textContent.substring(0, selection.baseOffset);
 
     addP = longText.split(" ").length-1;
 
